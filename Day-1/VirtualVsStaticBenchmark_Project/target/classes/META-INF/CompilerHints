@@ -3,5 +3,7 @@ dontinline,*.*_avgt_jmhStub
 dontinline,*.*_sample_jmhStub
 dontinline,*.*_ss_jmhStub
 dontinline,*.*_thrpt_jmhStub
-inline,com/example/bench/VirtualVsStaticBenchmark.staticCall
-inline,com/example/bench/VirtualVsStaticBenchmark.virtualCall
+inline,com/example/bench/OptimizerDefeatBenchmark.reflectionCall
+inline,com/example/bench/OptimizerDefeatBenchmark.setup
+inline,com/example/bench/OptimizerDefeatBenchmark.staticCall
+inline,com/example/bench/OptimizerDefeatBenchmark.virtualDispatch

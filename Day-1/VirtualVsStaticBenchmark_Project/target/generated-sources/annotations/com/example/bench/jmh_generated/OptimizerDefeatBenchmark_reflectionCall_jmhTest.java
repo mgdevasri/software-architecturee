@@ -32,8 +32,8 @@ import org.openjdk.jmh.results.ScalarResult;
 import org.openjdk.jmh.results.AggregationPolicy;
 import org.openjdk.jmh.runner.FailureAssistException;
 
-import com.example.bench.jmh_generated.VirtualVsStaticBenchmark_jmhType;
-public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
+import com.example.bench.jmh_generated.OptimizerDefeatBenchmark_jmhType;
+public final class OptimizerDefeatBenchmark_reflectionCall_jmhTest {
 
     byte p000, p001, p002, p003, p004, p005, p006, p007, p008, p009, p010, p011, p012, p013, p014, p015;
     byte p016, p017, p018, p019, p020, p021, p022, p023, p024, p025, p026, p027, p028, p029, p030, p031;
@@ -58,7 +58,7 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
     Blackhole blackhole;
     Control notifyControl;
 
-    public BenchmarkTaskResult virtualCall_Throughput(InfraControl control, ThreadParams threadParams) throws Throwable {
+    public BenchmarkTaskResult reflectionCall_Throughput(InfraControl control, ThreadParams threadParams) throws Throwable {
         this.benchmarkParams = control.benchmarkParams;
         this.iterationParams = control.iterationParams;
         this.threadParams    = threadParams;
@@ -68,25 +68,25 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            VirtualVsStaticBenchmark_jmhType l_virtualvsstaticbenchmark0_0 = _jmh_tryInit_f_virtualvsstaticbenchmark0_0(control);
+            OptimizerDefeatBenchmark_jmhType l_optimizerdefeatbenchmark0_0 = _jmh_tryInit_f_optimizerdefeatbenchmark0_0(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+                blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
                 if (control.shouldYield) Thread.yield();
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            virtualCall_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_virtualvsstaticbenchmark0_0);
+            reflectionCall_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_optimizerdefeatbenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+                    blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
                     if (control.shouldYield) Thread.yield();
                     res.allOps++;
                 }
@@ -96,7 +96,7 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             control.preTearDown();
 
             if (control.isLastIteration()) {
-                f_virtualvsstaticbenchmark0_0 = null;
+                f_optimizerdefeatbenchmark0_0 = null;
             }
             res.allOps += res.measuredOps;
             int batchSize = iterationParams.getBatchSize();
@@ -106,19 +106,19 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             res.measuredOps *= opsPerInv;
             res.measuredOps /= batchSize;
             BenchmarkTaskResult results = new BenchmarkTaskResult((long)res.allOps, (long)res.measuredOps);
-            results.add(new ThroughputResult(ResultRole.PRIMARY, "virtualCall", res.measuredOps, res.getTime(), benchmarkParams.getTimeUnit()));
+            results.add(new ThroughputResult(ResultRole.PRIMARY, "reflectionCall", res.measuredOps, res.getTime(), benchmarkParams.getTimeUnit()));
             this.blackhole.evaporate("Yes, I am Stephen Hawking, and know a thing or two about black holes.");
             return results;
         } else
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void virtualCall_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, VirtualVsStaticBenchmark_jmhType l_virtualvsstaticbenchmark0_0) throws Throwable {
+    public static void reflectionCall_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, OptimizerDefeatBenchmark_jmhType l_optimizerdefeatbenchmark0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+            blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -127,7 +127,7 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
     }
 
 
-    public BenchmarkTaskResult virtualCall_AverageTime(InfraControl control, ThreadParams threadParams) throws Throwable {
+    public BenchmarkTaskResult reflectionCall_AverageTime(InfraControl control, ThreadParams threadParams) throws Throwable {
         this.benchmarkParams = control.benchmarkParams;
         this.iterationParams = control.iterationParams;
         this.threadParams    = threadParams;
@@ -137,25 +137,25 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            VirtualVsStaticBenchmark_jmhType l_virtualvsstaticbenchmark0_0 = _jmh_tryInit_f_virtualvsstaticbenchmark0_0(control);
+            OptimizerDefeatBenchmark_jmhType l_optimizerdefeatbenchmark0_0 = _jmh_tryInit_f_optimizerdefeatbenchmark0_0(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+                blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
                 if (control.shouldYield) Thread.yield();
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            virtualCall_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_virtualvsstaticbenchmark0_0);
+            reflectionCall_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_optimizerdefeatbenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+                    blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
                     if (control.shouldYield) Thread.yield();
                     res.allOps++;
                 }
@@ -165,7 +165,7 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             control.preTearDown();
 
             if (control.isLastIteration()) {
-                f_virtualvsstaticbenchmark0_0 = null;
+                f_optimizerdefeatbenchmark0_0 = null;
             }
             res.allOps += res.measuredOps;
             int batchSize = iterationParams.getBatchSize();
@@ -175,19 +175,19 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             res.measuredOps *= opsPerInv;
             res.measuredOps /= batchSize;
             BenchmarkTaskResult results = new BenchmarkTaskResult((long)res.allOps, (long)res.measuredOps);
-            results.add(new AverageTimeResult(ResultRole.PRIMARY, "virtualCall", res.measuredOps, res.getTime(), benchmarkParams.getTimeUnit()));
+            results.add(new AverageTimeResult(ResultRole.PRIMARY, "reflectionCall", res.measuredOps, res.getTime(), benchmarkParams.getTimeUnit()));
             this.blackhole.evaporate("Yes, I am Stephen Hawking, and know a thing or two about black holes.");
             return results;
         } else
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void virtualCall_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, VirtualVsStaticBenchmark_jmhType l_virtualvsstaticbenchmark0_0) throws Throwable {
+    public static void reflectionCall_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, OptimizerDefeatBenchmark_jmhType l_optimizerdefeatbenchmark0_0) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+            blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -196,7 +196,7 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
     }
 
 
-    public BenchmarkTaskResult virtualCall_SampleTime(InfraControl control, ThreadParams threadParams) throws Throwable {
+    public BenchmarkTaskResult reflectionCall_SampleTime(InfraControl control, ThreadParams threadParams) throws Throwable {
         this.benchmarkParams = control.benchmarkParams;
         this.iterationParams = control.iterationParams;
         this.threadParams    = threadParams;
@@ -206,14 +206,14 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            VirtualVsStaticBenchmark_jmhType l_virtualvsstaticbenchmark0_0 = _jmh_tryInit_f_virtualvsstaticbenchmark0_0(control);
+            OptimizerDefeatBenchmark_jmhType l_optimizerdefeatbenchmark0_0 = _jmh_tryInit_f_optimizerdefeatbenchmark0_0(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+                blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
                 if (control.shouldYield) Thread.yield();
                 res.allOps++;
             }
@@ -223,12 +223,12 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             int batchSize = iterationParams.getBatchSize();
             int opsPerInv = benchmarkParams.getOpsPerInvocation();
             SampleBuffer buffer = new SampleBuffer();
-            virtualCall_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_virtualvsstaticbenchmark0_0);
+            reflectionCall_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_optimizerdefeatbenchmark0_0);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+                    blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
                     if (control.shouldYield) Thread.yield();
                     res.allOps++;
                 }
@@ -238,21 +238,21 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             control.preTearDown();
 
             if (control.isLastIteration()) {
-                f_virtualvsstaticbenchmark0_0 = null;
+                f_optimizerdefeatbenchmark0_0 = null;
             }
             res.allOps += res.measuredOps * batchSize;
             res.allOps *= opsPerInv;
             res.allOps /= batchSize;
             res.measuredOps *= opsPerInv;
             BenchmarkTaskResult results = new BenchmarkTaskResult((long)res.allOps, (long)res.measuredOps);
-            results.add(new SampleTimeResult(ResultRole.PRIMARY, "virtualCall", buffer, benchmarkParams.getTimeUnit()));
+            results.add(new SampleTimeResult(ResultRole.PRIMARY, "reflectionCall", buffer, benchmarkParams.getTimeUnit()));
             this.blackhole.evaporate("Yes, I am Stephen Hawking, and know a thing or two about black holes.");
             return results;
         } else
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void virtualCall_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, VirtualVsStaticBenchmark_jmhType l_virtualvsstaticbenchmark0_0) throws Throwable {
+    public static void reflectionCall_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, OptimizerDefeatBenchmark_jmhType l_optimizerdefeatbenchmark0_0) throws Throwable {
         long realTime = 0;
         long operations = 0;
         int rnd = (int)System.nanoTime();
@@ -267,7 +267,7 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             }
             for (int b = 0; b < batchSize; b++) {
                 if (control.volatileSpoiler) return;
-                blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+                blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
             }
             if (sample) {
                 buffer.add((System.nanoTime() - time) / opsPerInv);
@@ -285,7 +285,7 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
     }
 
 
-    public BenchmarkTaskResult virtualCall_SingleShotTime(InfraControl control, ThreadParams threadParams) throws Throwable {
+    public BenchmarkTaskResult reflectionCall_SingleShotTime(InfraControl control, ThreadParams threadParams) throws Throwable {
         this.benchmarkParams = control.benchmarkParams;
         this.iterationParams = control.iterationParams;
         this.threadParams    = threadParams;
@@ -294,7 +294,7 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             this.blackhole = new Blackhole("Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
         }
         if (threadParams.getSubgroupIndex() == 0) {
-            VirtualVsStaticBenchmark_jmhType l_virtualvsstaticbenchmark0_0 = _jmh_tryInit_f_virtualvsstaticbenchmark0_0(control);
+            OptimizerDefeatBenchmark_jmhType l_optimizerdefeatbenchmark0_0 = _jmh_tryInit_f_optimizerdefeatbenchmark0_0(control);
 
             control.preSetup();
 
@@ -302,42 +302,43 @@ public final class VirtualVsStaticBenchmark_virtualCall_jmhTest {
             notifyControl.startMeasurement = true;
             RawResults res = new RawResults();
             int batchSize = iterationParams.getBatchSize();
-            virtualCall_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_virtualvsstaticbenchmark0_0);
+            reflectionCall_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_optimizerdefeatbenchmark0_0);
             control.preTearDown();
 
             if (control.isLastIteration()) {
-                f_virtualvsstaticbenchmark0_0 = null;
+                f_optimizerdefeatbenchmark0_0 = null;
             }
             int opsPerInv = control.benchmarkParams.getOpsPerInvocation();
             long totalOps = opsPerInv;
             BenchmarkTaskResult results = new BenchmarkTaskResult(totalOps, totalOps);
-            results.add(new SingleShotResult(ResultRole.PRIMARY, "virtualCall", res.getTime(), totalOps, benchmarkParams.getTimeUnit()));
+            results.add(new SingleShotResult(ResultRole.PRIMARY, "reflectionCall", res.getTime(), totalOps, benchmarkParams.getTimeUnit()));
             this.blackhole.evaporate("Yes, I am Stephen Hawking, and know a thing or two about black holes.");
             return results;
         } else
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void virtualCall_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, VirtualVsStaticBenchmark_jmhType l_virtualvsstaticbenchmark0_0) throws Throwable {
+    public static void reflectionCall_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, OptimizerDefeatBenchmark_jmhType l_optimizerdefeatbenchmark0_0) throws Throwable {
         long realTime = 0;
         result.startTime = System.nanoTime();
         for (int b = 0; b < batchSize; b++) {
             if (control.volatileSpoiler) return;
-            blackhole.consume(l_virtualvsstaticbenchmark0_0.virtualCall());
+            blackhole.consume(l_optimizerdefeatbenchmark0_0.reflectionCall());
         }
         result.stopTime = System.nanoTime();
         result.realTime = realTime;
     }
 
     
-    VirtualVsStaticBenchmark_jmhType f_virtualvsstaticbenchmark0_0;
+    OptimizerDefeatBenchmark_jmhType f_optimizerdefeatbenchmark0_0;
     
-    VirtualVsStaticBenchmark_jmhType _jmh_tryInit_f_virtualvsstaticbenchmark0_0(InfraControl control) throws Throwable {
+    OptimizerDefeatBenchmark_jmhType _jmh_tryInit_f_optimizerdefeatbenchmark0_0(InfraControl control) throws Throwable {
         if (control.isFailing) throw new FailureAssistException();
-        VirtualVsStaticBenchmark_jmhType val = f_virtualvsstaticbenchmark0_0;
+        OptimizerDefeatBenchmark_jmhType val = f_optimizerdefeatbenchmark0_0;
         if (val == null) {
-            val = new VirtualVsStaticBenchmark_jmhType();
-            f_virtualvsstaticbenchmark0_0 = val;
+            val = new OptimizerDefeatBenchmark_jmhType();
+            val.setup();
+            f_optimizerdefeatbenchmark0_0 = val;
         }
         return val;
     }

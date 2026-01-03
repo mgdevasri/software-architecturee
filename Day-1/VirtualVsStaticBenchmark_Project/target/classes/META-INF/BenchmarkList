@@ -1,2 +1,3 @@
-JMH S 42 com.example.bench.VirtualVsStaticBenchmark S 75 com.example.bench.jmh_generated.VirtualVsStaticBenchmark_staticCall_jmhTest S 10 staticCall S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
-JMH S 42 com.example.bench.VirtualVsStaticBenchmark S 76 com.example.bench.jmh_generated.VirtualVsStaticBenchmark_virtualCall_jmhTest S 11 virtualCall S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 42 com.example.bench.OptimizerDefeatBenchmark S 79 com.example.bench.jmh_generated.OptimizerDefeatBenchmark_reflectionCall_jmhTest S 14 reflectionCall S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 42 com.example.bench.OptimizerDefeatBenchmark S 75 com.example.bench.jmh_generated.OptimizerDefeatBenchmark_staticCall_jmhTest S 10 staticCall S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 42 com.example.bench.OptimizerDefeatBenchmark S 80 com.example.bench.jmh_generated.OptimizerDefeatBenchmark_virtualDispatch_jmhTest S 15 virtualDispatch S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
