@@ -1,0 +1,2 @@
+JMH S 42 com.example.bench.VirtualVsStaticBenchmark S 75 com.example.bench.jmh_generated.VirtualVsStaticBenchmark_staticCall_jmhTest S 10 staticCall S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
+JMH S 42 com.example.bench.VirtualVsStaticBenchmark S 76 com.example.bench.jmh_generated.VirtualVsStaticBenchmark_virtualCall_jmhTest S 11 virtualCall S 11 AverageTime E A 1 1 1 E E E E E E E E E E E E E E U 11 NANOSECONDS E E 
