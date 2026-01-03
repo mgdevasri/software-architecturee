@@ -1,48 +1,75 @@
 package com.example.bench;
 
+import java.lang.reflect.Method;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.*;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Thread)
-public class VirtualVsStaticBenchmark {
+public class OptimizerDefeatBenchmark {
 
-    // ---------------- GOOD CODE (STATIC / INLINEABLE) ----------------
-    static class StaticCalc {
-        static int add(int a, int b) {
-            return a + b;
+    // OPTIMIZED STATIC PATH (INLINEABLE)
+    static class StaticCalculator {
+        static int compute(int x) {
+            return x + 10;
         }
     }
 
-    @Benchmark   //devirtualization + inlining
+    @Benchmark
     public int staticCall() {
-        return StaticCalc.add(10, 20);
+        // JVM can inline this completely
+        return StaticCalculator.compute(5);
     }
 
-    // ---------------- BAD CODE (VIRTUAL / POLYMORPHIC) ----------------
+    // OPTIMIZER-DEFEATED: TRUE VIRTUAL DISPATCH
     interface Calculator {
-        int add(int a, int b);
+        int compute(int x);
     }
 
-    static class VirtualCalc implements Calculator {  //JVM cannot know target at compile time
-        @Override
-        public int add(int a, int b) {
-            return a + b;
+    static class AddCalculator implements Calculator {
+        public int compute(int x) {
+            return x + 10;
         }
     }
 
-    // Polymorphic reference
-    private final Calculator calc = new VirtualCalc();
+    static class MulCalculator implements Calculator {
+        public int compute(int x) {
+            return x * 10;
+        }
+    }
 
-    @Benchmark 
-    public int virtualCall() {
-        return calc.add(10, 20);
+    // Multiple implementations → polymorphic
+    private final Calculator[] calculators = {
+            new AddCalculator(),
+            new MulCalculator()
+    };
+
+    private final Random random = new Random();
+
+    @Benchmark
+    public int virtualDispatch() {
+        // Runtime selection defeats devirtualization
+        Calculator calc = calculators[random.nextInt(calculators.length)];
+        return calc.compute(5);
+    }
+
+    // OPTIMIZER KILLER: REFLECTION
+    private Method reflectMethod;
+    private final Calculator reflectTarget = new AddCalculator();
+
+    @Setup
+    public void setup() throws Exception {
+        reflectMethod = reflectTarget
+                .getClass()
+                .getMethod("compute", int.class);
+    }
+
+    @Benchmark
+    public int reflectionCall() throws Exception {
+        // JVM cannot inline or optimize this
+        return (int) reflectMethod.invoke(reflectTarget, 5);
     }
 }
